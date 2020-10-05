@@ -3,19 +3,28 @@ import { MTRow, MTColumn } from 'mt-ui'
 import ExcelDropzone from './excel-dropzone.jsx'
 import users from './users'
 import scores from './scores'
-import findHighestScore from './lib/findHighestScore'
+import { formatUserOneScore } from './lib/formatData'
 import RankingList from './components/RankingList'
 
 export default class Main extends React.Component {
+  state = {
+    users,
+    scores,
+  }
   handleSheetData(data) {
     // replace this log with actual handling of the data
     console.log(data)
   }
   handleClick = (id) => {
+    this.setState(prevState => ({
+      users: [...prevState.users, { _id: 4, name: "hello" }],
+      scores: [...prevState.scores, { userId: 4, score: 1 }],
+    }))
     console.log(id)
   }
 
   render() {
+    // console.log(this.state)
     return (
       <div className="container container--centered">
         <h1 className="m-t">Mediatool exercise</h1>
@@ -28,7 +37,7 @@ export default class Main extends React.Component {
           </MTColumn>
           <MTColumn width={75} offset={5}>
             <RankingList
-              users={findHighestScore(users, scores)}
+              users={formatUserOneScore(this.state.users, this.state.scores)}
               handleClick={this.handleClick}
             />
             {/* <div>

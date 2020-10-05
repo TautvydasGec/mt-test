@@ -6,11 +6,11 @@ const RankingList = ({ users, handleClick }) => {
     <div>
       {users.map((item) => {
         return (
-          <div key={item.userId}>
+          <div key={item.id}>
             <UserDisplay
-              id={item.userId}
               score={item.score}
-              handleClick={() => handleClick(item.userId)}
+              name={item.name}
+              handleClick={() => handleClick(item.id)}
             />
           </div>
         )
