@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Popup = ({ data, handleClose }) => {
-  console.log(data)
   return (
     <div>
       <button onClick={handleClose}>Close</button>

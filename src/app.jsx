@@ -81,7 +81,6 @@ export default class Main extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <div className="container container--centered">
         <h1 className="m-t">Mediatool exercise</h1>

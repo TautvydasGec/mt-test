@@ -16,7 +16,7 @@ const Form = ({ onSubmit }) => {
   return (
     <div>
       <input ref={nameRef} type="text" />
-      <input ref={scoreRef} type="number" />
+      <input ref={scoreRef} type="number" min="0" step="1" />
       <button onClick={handleSubmit}>Submit</button>
       {!showDisclaimer
         ? <div style={{ color: 'red' }}>
