@@ -10,6 +10,9 @@ export default class Main extends React.Component {
     // replace this log with actual handling of the data
     console.log(data)
   }
+  handleClick = (id) => {
+    console.log(id)
+  }
 
   render() {
     return (
@@ -23,7 +26,7 @@ export default class Main extends React.Component {
             />
           </MTColumn>
           <MTColumn width={75} offset={5}>
-            <RankingList users={users} scores={scores} />
+            <RankingList users={users} scores={scores} handleClick={this.handleClick} />
             {/* <div>
               <h2>Initial site</h2>
               <p>
