@@ -30,6 +30,12 @@ export default class Main extends React.Component {
     }
   }
 
+  handleClose = () => {
+    this.setState({
+      popUp: null,
+    })
+  }
+
   render() {
     // console.log(this.state.popUp)
     return (
@@ -53,6 +59,7 @@ export default class Main extends React.Component {
           ? (
             <Popup
               data={getScoresById(this.state.scores, this.state.popUp)}
+              handleClose={this.handleClose}
             />
           )
           : null
