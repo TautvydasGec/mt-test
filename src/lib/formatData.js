@@ -20,7 +20,7 @@ const formatUserOneScore = (users, scores) => {
     const newUserData = {
       id: user._id,
       name: user.name,
-      score: user.scores.reduce((a, b) => a > b ? a : b),
+      score: user.scores.reduce((a, b) => a > b ? a : b, 0),
     }
     return newUserData
   })
@@ -30,7 +30,7 @@ const formatUserOneScore = (users, scores) => {
 const getScoresById = (scores, id) => {
   const filteredScores = scores.filter((item) => item.userId === id)
   const structuredScores = filteredScores.map((item) => item.score)
-  return structuredScores
+  return structuredScores.sort((a, b) => b - a);
 }
 
 export {
