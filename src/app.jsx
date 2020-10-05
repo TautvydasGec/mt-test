@@ -3,6 +3,7 @@ import { MTRow, MTColumn } from 'mt-ui'
 import ExcelDropzone from './excel-dropzone.jsx'
 import users from './users'
 import scores from './scores'
+import findHighestScore from './lib/findHighestScore'
 import RankingList from './components/RankingList'
 
 export default class Main extends React.Component {
@@ -26,7 +27,10 @@ export default class Main extends React.Component {
             />
           </MTColumn>
           <MTColumn width={75} offset={5}>
-            <RankingList users={users} scores={scores} handleClick={this.handleClick} />
+            <RankingList
+              users={findHighestScore(users, scores)}
+              handleClick={this.handleClick}
+            />
             {/* <div>
               <h2>Initial site</h2>
               <p>

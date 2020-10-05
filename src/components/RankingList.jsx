@@ -1,12 +1,10 @@
 import React from 'react'
-
-import findHighestScore from '../lib/findHighestScore'
 import UserDisplay from './UserDisplay'
 
-const RankingList = ({ users, scores, handleClick }) => {
+const RankingList = ({ users, handleClick }) => {
   return (
     <div>
-      {findHighestScore(users, scores).map((item) => {
+      {users.map((item) => {
         return (
           <div key={item.userId}>
             <UserDisplay
