@@ -4,9 +4,10 @@ import UserDisplay from './UserDisplay'
 const RankingList = ({ users, handleClick }) => {
   return (
     <div>
-      {users.map((item) => {
+      {users.map((item, index) => {
         return (
           <div key={item.id}>
+            {index + 1}
             <UserDisplay
               score={item.score}
               name={item.name}

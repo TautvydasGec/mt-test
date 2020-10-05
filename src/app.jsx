@@ -10,21 +10,26 @@ export default class Main extends React.Component {
   state = {
     users,
     scores,
+    popUp: null,
   }
   handleSheetData(data) {
     // replace this log with actual handling of the data
     console.log(data)
   }
   handleClick = (id) => {
-    this.setState(prevState => ({
-      users: [...prevState.users, { _id: 4, name: "hello" }],
-      scores: [...prevState.scores, { userId: 4, score: 1 }],
-    }))
-    console.log(id)
+    if (this.state.popUp !== id) {
+      this.setState({
+        popUp: id,
+      })
+    } else {
+      this.setState({
+        popUp: null,
+      })
+    }
   }
 
   render() {
-    // console.log(this.state)
+    console.log(this.state.popUp)
     return (
       <div className="container container--centered">
         <h1 className="m-t">Mediatool exercise</h1>
@@ -35,7 +40,7 @@ export default class Main extends React.Component {
               label="Drop your file here"
             />
           </MTColumn>
-          <MTColumn width={75} offset={5}>
+          <MTColumn width={75} offset={50}>
             <RankingList
               users={formatUserOneScore(this.state.users, this.state.scores)}
               handleClick={this.handleClick}

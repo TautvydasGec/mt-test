@@ -20,12 +20,11 @@ const formatUserOneScore = (users, scores) => {
     const newUserData = {
       id: user._id,
       name: user.name,
-      score: user.scores.reduce((a, b) => a.score > b.score ? a : b),
+      score: user.scores.reduce((a, b) => a > b ? a : b),
     }
     return newUserData
   })
-  console.log(userList)
-  return userList
+  return userList.sort((a, b) => b.score - a.score);
 }
 
 export {
