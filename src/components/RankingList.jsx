@@ -6,8 +6,11 @@ const RankingList = ({ users, handleClick }) => {
     <div>
       {users.map((item, index) => {
         return (
-          <div key={item.id}>
-            {index + 1}
+          <div
+            key={item.id}
+            style={{ display: 'flex' }}
+          >
+            <div>{index + 1}</div>
             <UserDisplay
               score={item.score}
               name={item.name}

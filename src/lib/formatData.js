@@ -27,7 +27,14 @@ const formatUserOneScore = (users, scores) => {
   return userList.sort((a, b) => b.score - a.score);
 }
 
+const getScoresById = (scores, id) => {
+  const filteredScores = scores.filter((item) => item.userId === id)
+  const structuredScores = filteredScores.map((item) => item.score)
+  return structuredScores
+}
+
 export {
   formatUser,
   formatUserOneScore,
+  getScoresById,
 }
