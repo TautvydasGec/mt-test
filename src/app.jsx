@@ -105,13 +105,11 @@ export default class Main extends React.Component {
           </MTColumn>
         </MTRow>
         <MTRow>
-          <MTColumn width={20}>
+          <MTColumn>
             <RankingList
               users={formatUserOneScore(this.state.users, this.state.scores)}
               handleClick={this.handleClick}
             />
-          </MTColumn>
-          <MTColumn width={60} offset={10}>
             {this.state.currentId
               ? (
                 <Popup

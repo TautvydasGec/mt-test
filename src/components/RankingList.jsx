@@ -3,15 +3,19 @@ import UserDisplay from './UserDisplay'
 
 const RankingList = ({ users, handleClick }) => {
   return (
-    <div>
+    <div className="table">
+      <div className="list-top">
+        <div>Ranking</div>
+        <div>Name</div>
+        <div>Score</div>
+      </div>
       {users.map((item, index) => {
         return (
           <div
             key={item.id}
-            style={{ display: 'flex' }}
           >
-            <div>{index + 1}</div>
             <UserDisplay
+              rank={index + 1}
               score={item.score}
               name={item.name}
               handleClick={() => handleClick(item.id)}

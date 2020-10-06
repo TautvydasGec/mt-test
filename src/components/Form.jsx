@@ -12,7 +12,7 @@ const Form = ({ onSubmit }) => {
     const name = nameRef.current.value
     const score = scoreRef.current.value
     if (!name || !score) return setDisclaimer('Please input both fields')
-    if (score < 0) return setDisclaimer('Select positive value for score')
+    if (score < 0) return setDisclaimer('Select a positive value for score')
 
     onSubmit(name, score)
   }
