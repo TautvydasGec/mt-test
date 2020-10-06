@@ -57,23 +57,29 @@ export default class Main extends React.Component {
   }
 
   addUser = (name, score) => {
+    const newId = this.generateId()
     this.setState(({ users, scores }) => ({
       users: [
         ...users,
         {
-          _id: users[users.length - 1]._id + 1,
+          _id: newId,
           name,
         },
       ],
       scores: [
         ...scores,
         {
-          userId: users[users.length - 1]._id + 1,
+          userId: newId,
           score,
         }
       ]
 
     }))
+  }
+  //generate id for a new user by taking the last users id and adding 1
+  //disclaimer: better implementation would be to use library such as uuid
+  generateId = () => {
+    return this.state.users[this.state.users.length - 1]._id + 1
   }
 
   addScore = (name, score) => {
