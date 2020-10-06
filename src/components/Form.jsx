@@ -18,16 +18,34 @@ const Form = ({ onSubmit }) => {
   }
 
   return (
-    <div>
+    <div className="form-wrapper">
       {/* Instead of using refs form can be implemented using Formik */}
-      <input ref={nameRef} type="text" />
-      <input ref={scoreRef} type="number" min="0" step="1" />
-      <button onClick={handleSubmit}>Submit</button>
+      <label>Name</label>
+      <input
+        ref={nameRef}
+        type="text"
+        placeholder="Name"
+      />
+
+      <label>Score</label>
+      <input
+        ref={scoreRef}
+        type="number"
+        placeholder="Score"
+        min="0"
+        step="1"
+      />
+
+      <button onClick={handleSubmit}>
+        Submit
+      </button>
+
       {disclaimer
         ? <div style={{ color: 'red' }}>
           {disclaimer}
         </div>
         : null}
+
     </div>
   )
 }

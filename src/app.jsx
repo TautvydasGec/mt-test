@@ -100,7 +100,7 @@ export default class Main extends React.Component {
               label="Drop your file here"
             />
           </MTColumn>
-          <MTColumn width={60} offset={10}>
+          <MTColumn width={20} offset={33}>
             <Form onSubmit={this.onSubmit} />
           </MTColumn>
         </MTRow>
