@@ -1,14 +1,15 @@
 import React from 'react'
 
-const Popup = ({ data, handleClose }) => {
+const Popup = ({ name, scores, handleClose }) => {
   return (
-    <div>
-      <button onClick={handleClose}>Close</button>
-      {data.map((item, index) => (
-        <div key={index + item}>
+    <div className="popup-wrapper">
+      <h3>All the scores for {name}</h3>
+      {scores.map((item, index) => (
+        <div key={index}>
           {item}
         </div>
       ))}
+      <button onClick={handleClose}>Close</button>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import { MTRow, MTColumn } from 'mt-ui'
 
 import users from './users'
 import scores from './scores'
-import { formatUserOneScore, getScoresById } from './lib/formatData'
+import { formatUserOneScore, getScoresById, getNameById } from './lib/formatData'
 
 import ExcelDropzone from './excel-dropzone.jsx'
 import RankingList from './components/RankingList'
@@ -96,6 +96,7 @@ export default class Main extends React.Component {
   }
 
   render() {
+    const { users, scores, currentId } = this.state
     return (
       <div className="container container--centered">
         <h1 className="m-t">Mediatool exercise</h1>
@@ -106,20 +107,23 @@ export default class Main extends React.Component {
               label="Drop your file here"
             />
           </MTColumn>
-          <MTColumn width={20} offset={33}>
+          <MTColumn offset={33}>
             <Form onSubmit={this.onSubmit} />
           </MTColumn>
         </MTRow>
         <MTRow>
           <MTColumn>
             <RankingList
-              users={formatUserOneScore(this.state.users, this.state.scores)}
+              users={formatUserOneScore(users, scores)}
               handleClick={this.handleClick}
             />
-            {this.state.currentId
+          </MTColumn>
+          <MTColumn>
+            {currentId
               ? (
                 <Popup
-                  data={getScoresById(this.state.scores, this.state.currentId)}
+                  name={getNameById(users, currentId)}
+                  scores={getScoresById(scores, currentId)}
                   handleClose={this.handleClose}
                 />
               )

@@ -35,8 +35,14 @@ const getScoresById = (scores, id) => {
   return structuredScores.sort((a, b) => b - a);
 }
 
+const getNameById = (names, id) => {
+  const name = names.filter((item) => item._id === id)[0].name
+  return name
+}
+
 export {
   formatUser,
   formatUserOneScore,
   getScoresById,
+  getNameById,
 }

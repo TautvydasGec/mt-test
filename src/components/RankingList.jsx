@@ -3,7 +3,7 @@ import UserDisplay from './UserDisplay'
 
 const RankingList = ({ users, handleClick }) => {
   return (
-    <div className="table">
+    <div className="table-wrapper">
       <div className="list-top">
         <div>Ranking</div>
         <div>Name</div>
