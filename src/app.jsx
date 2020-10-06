@@ -16,9 +16,18 @@ export default class Main extends React.Component {
     currentId: null,
   }
 
-  handleSheetData(data) {
-    // replace this log with actual handling of the data
-    console.log(data)
+  lookForName = (name) => {
+    return this.state.users.some(user => user.name === name)
+  }
+
+  handleSheetData = (data) => {
+    data.map(({ name, score }) => {
+      if (this.lookForName(name)) {
+        return this.addScore(name, score)
+      } else {
+        return this.addUser(name, score)
+      }
+    })
   }
 
   handleClick = (id) => {
@@ -40,7 +49,7 @@ export default class Main extends React.Component {
   }
 
   onSubmit = (name, score) => {
-    if (this.state.users.some(user => user.name === name)) {
+    if (this.lookForName(name)) {
       this.addScore(name, score)
     } else {
       this.addUser(name, score)

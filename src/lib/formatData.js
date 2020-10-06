@@ -20,16 +20,18 @@ const formatUserOneScore = (users, scores) => {
     const newUserData = {
       id: user._id,
       name: user.name,
-      score: user.scores.reduce((a, b) => a > b ? a : b, 0),
+      score: user.scores.reduce((a, b) => a > b ? a : b, 0), //find highest score
     }
     return newUserData
   })
+
   return userList.sort((a, b) => b.score - a.score);
 }
 
 const getScoresById = (scores, id) => {
   const filteredScores = scores.filter((item) => item.userId === id)
   const structuredScores = filteredScores.map((item) => item.score)
+
   return structuredScores.sort((a, b) => b - a);
 }
 
