@@ -3,7 +3,7 @@ import { MTRow, MTColumn } from 'mt-ui'
 
 import users from './users'
 import scores from './scores'
-import { formatUserOneScore, getScoresById, getNameById } from './lib/formatData'
+import { formatUserOneScore, getScoresById, getNameById } from './lib/format-data'
 
 import ExcelDropzone from './excel-dropzone.jsx'
 import RankingList from './components/RankingList'
