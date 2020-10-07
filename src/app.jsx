@@ -16,6 +16,12 @@ export default class Main extends React.Component {
     currentId: null,
   }
 
+  //generate id for a new user by taking the last users id and adding 1
+  //disclaimer: better implementation would be to use library such as uuid
+  generateId = () => {
+    return this.state.users[this.state.users.length - 1]._id + 1
+  }
+
   lookForName = (name) => {
     return this.state.users.some(user => user.name === name)
   }
@@ -30,7 +36,7 @@ export default class Main extends React.Component {
     })
   }
 
-  handleClick = (id) => {
+  handleOpen = (id) => {
     if (this.state.currentId !== id) {
       this.setState({
         currentId: id,
@@ -76,11 +82,6 @@ export default class Main extends React.Component {
 
     }))
   }
-  //generate id for a new user by taking the last users id and adding 1
-  //disclaimer: better implementation would be to use library such as uuid
-  generateId = () => {
-    return this.state.users[this.state.users.length - 1]._id + 1
-  }
 
   addScore = (name, score) => {
     const id = this.state.users.filter(user => user.name === name)[0]._id
@@ -115,18 +116,16 @@ export default class Main extends React.Component {
           <MTColumn>
             <RankingList
               users={formatUserOneScore(users, scores)}
-              handleClick={this.handleClick}
+              handleClick={this.handleOpen}
             />
           </MTColumn>
           <MTColumn>
             {currentId
-              ? (
-                <Popup
-                  name={getNameById(users, currentId)}
-                  scores={getScoresById(scores, currentId)}
-                  handleClose={this.handleClose}
-                />
-              )
+              ? (<Popup
+                name={getNameById(users, currentId)}
+                scores={getScoresById(scores, currentId)}
+                handleClose={this.handleClose}
+              />)
               : null
             }
           </MTColumn>
