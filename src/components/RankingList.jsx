@@ -9,16 +9,16 @@ const RankingList = ({ users, handleClick }) => {
         <div>Name</div>
         <div>Score</div>
       </div>
-      {users.map((item, index) => {
+      {users.map((user, index) => {
         return (
           <div
-            key={item.id}
+            key={user.id}
           >
             <UserDisplay
               rank={index + 1}
-              score={item.score}
-              name={item.name}
-              handleClick={() => handleClick(item.id)}
+              score={user.score}
+              name={user.name}
+              handleClick={() => handleClick(user.id)}
             />
           </div>
         )

@@ -41,7 +41,7 @@ const Form = ({ onSubmit }) => {
       </button>
 
       {disclaimer
-        ? <div style={{ color: 'red' }}>
+        ? <div className="disclaimer">
           {disclaimer}
         </div>
         : null}

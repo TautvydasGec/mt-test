@@ -1,7 +1,6 @@
 import React from 'react'
 
 const UserDisplay = ({ rank, name, score, handleClick }) => {
-
   return (
     <div className="list" onClick={handleClick}>
       <div className="list-rank">{rank}</div>

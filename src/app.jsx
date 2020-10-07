@@ -42,6 +42,7 @@ export default class Main extends React.Component {
         currentId: id,
       })
     } else {
+      //if user popup is already active - close popup
       this.setState({
         currentId: null,
       })
@@ -84,7 +85,7 @@ export default class Main extends React.Component {
   }
 
   addScore = (name, score) => {
-    const id = this.state.users.filter(user => user.name === name)[0]._id
+    const id = this.state.users.filter(user => user.name === name)[0]._id //find users id by name
     this.setState(({ scores }) => ({
       scores: [
         ...scores,
