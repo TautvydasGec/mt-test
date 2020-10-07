@@ -1,1 +1,3 @@
-mt-test
+## Motivation behind the choice of solutions:
+1. ID generation could be implemented using a library such as [uuidv4](https://www.npmjs.com/package/uuidv4) and form control using library such as [formik](https://www.npmjs.com/package/formik), as to maintain the spirit of challenge these tools were not used,but could be easily implemented.
+2. Data structure for users and scores in app.jsx container are kept in the same structure as users.js and scores.js files. This would allow the data to be stored (database, redux, local storage) in the same structure without need of formating at a later date.
